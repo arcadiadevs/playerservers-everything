@@ -1,0 +1,5 @@
+nodes:
+  node1:
+    host: localhost
+    port: 8051
+    token: "token"
