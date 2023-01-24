@@ -2,61 +2,56 @@ playerservers-default-cmd = "&9PlayerServers> &7An advanced Server Management pl
 license-msg = "&9Licence> &7%license%"
 run-in-game = "&9Error> &7Oops! You can only run this command in-game."
 no-server = "&9Error> &7You don't own a server. Don't worry, you can create one by executing &a/ps create"
-not-enough-arguments = "&9PlayerServers> &7Oops, not enough arguments: /playerservers admin test <node-name>"
+not-enough-arguments = "&9Error> &7Not enough arguments. Please use &a/ps help &7for more information."
 not-enough-arguments-kill = "&9PlayerServers> &7Oops, not enough arguments: /playerserver kill stop <uuid (example: 1F4a2id)>"
 not-enough-arguments-delete = "&9PlayerServers> &7Not enough arguments. &a/playerservers admin delete <uuid>. Please keep in mind that you should not enter the full id. You should just enter the first part (example: if full UUID is 1234-5678-1223-5623, you should just enter 1234)."
 no-permission = "&9Error> &7Oops, it seems like you don't have permission to do that."
-launching-server = "&c&lLaunching your server. This might take some time. You will be teleported as soon as it's ready."
-server-online = "&9PlayerServers> &7Oops, it seems like your server is not online."
-already-have = "&9Error> &7Oops, it seems like you already have a server!"
-too-many-online = "&9Error> &7Oops, it seems like too many servers are running at the moment."
-template-no-permission = "&9Error> &7Oops, you don't have permission to use that template!"
+launching-server = "&9PlayerServers> &7Your server is starting up. Please wait..."
+server-online = "&9PlayerServers> &7Your server is now online. You will be connected shortly. Your friends can use &a/server %uuid%&7 to connect."
+already-have = "&9PlayerServers> &7You already have a server with that name. Please choose another name."
+too-many-online = "&9PlayerServers> &7You have too many servers online. Please wait until one of your servers is offline."
+template-no-permission = "&9PlayerServers> &7You don't have permission to use this template."
 
 [server-creation]
 
-starting-creation = "&9PlayerServer> &7Starting the creation of your server..."
-copied-files = "&9Process> &7Successfully copied required files and built the server container."
-teleporting-soon = "&9PostProcess> &7Your server has been created. Teleporting in &a%time% &7seconds..."
-sending-to-remote-server = "&9Process> &7We're beginning the creation of your server on the first remote node that provides us with ample resources. This will not take a while."
+starting-creation = "&9PlayerServers> &7Your server is being created. Please wait..."
+teleporting-soon = "&9PlayerServers> &7You will be teleported to your server in a few seconds."
+sending-to-remote-server = "&9PlayerServers> &7Sending you to your server..."
 
 # Pterodactyl
-account-created-successfully = "&9Success> &7Your account has been created successfully."
+account-created-successfully = "&9PlayerServers> &7Your account has been created successfully."
 account-creation-failed = "&9Error> &7Account creation failed. Please try again later. Error: %error%"
 
-server-created-successfully = "&9Success> &7Your server has been created successfully on Pterodactyl panel."
+server-created-successfully = "&9PlayerServers> &7Your server has been created successfully on Pterodactyl panel."
 server-creation-failed = "&9Error> &7Server creation failed. Please try again later. Error: %error%"
 
 [server-reboot]
 
-message = "&9PlayerServers> &7In order to restart your server, you need to shut it down first by running &a/stop&7 from your server. You can also forcefully kill it by running &c/playerserver stop.&7 After stopping your server, execute command &a/playerserver start&7 in order to boot it up again."
-warning = "&9WARNING> &7You can also &aFORCE REBOOT&7 the server by executing this command again in &c5 seconds&7, but world may end up being &6unsaved&7, and &ccorruption&7 may appear."
+message = "&9PlayerServers> &7%message%"
+warning = "&c&lAre you sure you want to do that? If you do, please repeat this command in the next 5 seconds."
 
 [server-rename]
 
-successfully-renamed = "&9PlayerServers> &7Successfully renamed server."
-too-long = "&9Error> &7Oops, the servername must be 15 characters long at most."
-invalid-characeters = "&9Error> &7Oops, the servername can only contain A-Z, a-z, 1-9."
-rename-failed = "&9PlayerServers> &7Oops, the server with that name already exists."
+successfully-renamed = "&9PlayerServers> &7Your server has been successfully renamed."
+too-long = "&9Error> &7Your server name is too long. Please choose a shorter name."
+invalid-characeters = "&9Error> &7Your server name contains invalid characters. Please choose a valid name."
+rename-failed = "&9Error> &7Renaming your server failed. Please try again later."
 
 [server-stop]
 
-not-online = "&9PlayerServers> &7Oops, it seems like your server is not online."
-successfully-killed = "&9Success> &7Your server has been successfully killed."
-
-[server-start]
-
-prepairing = "&9PlayerServers> &7Preparing to launch your server."
+not-online = "&9Error> &7Your server is not online."
+successfully-killed = "&9PlayerServers> &7Your server has been successfully killed."
 
 [server-connect]
 
-connected = "&9PlayerServer> &7You've been successfully sent to your server. Your friends can use &a/server %uuid%&7 to connect."
+connected = "&9PlayerServers> &7You are being connected to your server..."
 
 [server-restart]
 
-killing = "&9PlayerServers> &7Trying to kill your server..."
+killing = "&9PlayerServers> &7Killing your server..."
 
 [server-remove]
 
-remove-warning = "&c&lAre you sure you want to delete your server? If you do, please repeat this command in the next 5 seconds."
+remove-warning = "&9PlayerServers> &7Are you sure you want to remove your server? If you do, please repeat this command in the next 5 seconds."
 removing = "&9PlayerServers> &7Deleting your server..."
-successfully-removed = "&c&lYour server has been successfully deleted. Removing you from the database now..."
+successfully-removed = "&9PlayerServers> &7Your server has been successfully removed."
