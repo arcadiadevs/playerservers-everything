@@ -9,43 +9,19 @@
 
 # Please enter your MySQL information below.
 mysql:
-  hostname: 127.0.0.1
-  username: web
-  password: webmaster
-  database: playerservers
-  useSSL: true
+  # Url of the MySQL server, in format: jdbc:mysql://<host>:<port>/<database>
+  # Any additional options can be added at the end of url, such as:
+  # ?autoReconnect=true&useSSL=false?useUnicode=true&characterEncoding=UTF-8
+  url: "jdbc:mysql://localhost:3306/playerservers?useSSL=false&serverTimezone=UTC"
 
-  additionaloptions: []
-  #  - "allowPublicKeyRetrieval=true"
+  username: root
+  password: root
 
-  url-based-connection:
-    enabled: false
-    driverName: "com.mysql.cj.jdbc.Driver"
-
-    # If you're using this connection method, you'll be entering your hostname,
-    # port and database name below in the jdbcUrl string. The ones above will not
-    # be considered.
-    jdbcUrl: "jdbc:mysql://localhost:3306/playerservers"
-
-  # Between version v1.2-RC6 and v1.2-RC7 there was a change in
-  # Database handling. Everyone upgrading that were satisfied
-  # on how it worked before should keep it as false, or first
-  # try enabling it and seeing if their servers are still
-  # attached to their account or not. In some rare cases it
-  # can happen that changing the value of this option can
-  # detach servers from your account, so enabling it if it
-  # worked correctly for you before is not needed.
-  use-modern-database: true
-
-# This setting defines port range
-ports:
-  # Server port range
-  start-port: 30000
-  end-port: 40000
-
-  # Panel port range only if experimental-panel is enabled
-  panel-start-port: 40000
-  panel-end-port: 50000
+  # Developer options, do not change unless you know what you are doing.
+  driver: "com.mysql.cj.jdbc.Driver"
+  update-policy: "update"
+  debug: false
+  get-from-file: false
 
 # Where should players be moved after they /stop or /ps kill their server?
 balancer:
@@ -62,6 +38,19 @@ server-name-format:
 
   # Which format should we use?
   # %id% equals to player name or uuid depending on use-usernames option
+  # %uuid% is a random UUID (independent of use-usernames option)
+  # %uuidshort% is a random UUID without dashes (independent of use-usernames option)
+  # %player% is the player name (independent of use-usernames option)
+  # %playeruuid% is the player UUID
+  # %playeruuidshort% is the player UUID without dashes
+  # %timestamp% is a timestamp in milliseconds
+  # %timestampshort% is a timestamp in seconds
+  # %day% is a day of the month
+  # %month% is a month of the year
+  # %year% is a year
+  #
+  # To find out what a UUID looks like, you can use this website:
+  # https://www.uuidgenerator.net
   format: "PS_%id%"
 
 # What is the max amount of servers that can be running at once?
@@ -78,17 +67,6 @@ copy-delay: 3
 
 # Default startup command. Supports %uuid% for server UUID and %mem% for memory.
 launch-command: "screen -dmS %uuid% java -Xmx%mem%M -jar Spigot.jar"
-
-# In how much seconds, after first boot-up of the server should we
-# teleport the player to their sub-server? This depends on the strength
-# of your machine CPU. If you have a stronger machine, you might wanna set
-# it to something like 12 seconds, if you have some kind of Xeon with less
-# than 3.9Ghz, you might wanna set this to 15-20 seconds.
-teleport-time: 15
-
-# In how many seconds should we attempt to connect player to their
-# sub-server after it being launched by /playerserver start command?
-teleport-time-normal: 10
 
 ram-limiting:
   # Should we use permissions for ram management? If set to true, you MUST give
@@ -148,40 +126,72 @@ smart-command: false
 # Obviously, admin commands require permission no matter what.
 enable-permissions: true
 
+# Templates will not work on Pterodactyl.
 templates:
   default:
     # This is just an example of what you can do with requires-permission.
     # Default template will never require permission, even if set to true.
     requires-permission: false
+    # The type of the server jar. Can be "SPIGOT", "PAPER", "PUFFERFISH",
+    # "PURPUR", "MAGMA", "FORGE", "FABRIC" and much more.
+    #
+    # For a full list of supported server jars, check out this link:
+    # https://github.com/itzg/docker-minecraft-server/blob/master/README.md#server-types
+    type: "PAPER"
+    # The version of the template. Paper jar will be downloaded automatically
+    # Please avoid using non-standard versions such as 1.7.5 or 1.10 or 1.17.1
+    # If you use LATEST, server will always automatically update to the latest
+    # version of Minecraft available, as soon as server is restarted.
+    # If you use SNAPSHOT, server will always automatically update to the latest
+    # snapshot version of Minecraft available, as soon as server is restarted.
+    # SNAPSHOT may not work on all types of servers.
+    version: "1.8.8"
     # What launch command should be used? If set as %default%, launch-command
     # from above will be used (~line 70). Supports %mem% and %uuid% placeholders.
     launch-command: "%default%"
     # What plugins does this template contain?
     # More info: https://playerservers.thearcadia.xyz/experimental/templates
-    plugins: []
+    plugins: [ ]
 
 # Which folders or files will not show in /config file manager?
 disabled-access:
   - "ExampleFolder"
   - "Plugin.jar"
 
-# BETA FEATURES. USE AT OWN RISK!!
-multi-node: false
-experimental-rename: false
-
 pterodactyl:
+  # Should we enable Pterodactyl deployment? If set to true, you don't need
+  # to configure PlayerServers Daemon. All deployments will be done by Pterodactyl.
   enabled: false
+
+  # Url of your panel. Example: https://panel.example.com
+  # Make sure not to have / at the end!!
   url: "http://localhost:8080"
+
+  # Application token can be created under "Admin" -> "Application API."
+  # Make sure to give it read/write access:
+  # - Servers
+  # - Allocations
+  # - Users
+  # For everything else except "server databases", give it read-only access.
   application-token: "token"
+
+  # Client token can be generated under "Account" -> "API Credentials."
+  # Url: https://panel.example.com/account/api
+  # This token must be generated by an admin account.
   client-token: "token"
 
+  # Important variables to configure. Make sure to enter valid nest and egg id from
+  # which the servers will be deploy.
+  # Location id is the ID of location used for load-balanced deployments.
+  # Nodes under the selected location will be slowly filled up with servers.
   nest-id: 0
   egg-id: 0
   location-id: 0
 
+  # Should we print the docker container installation output to the user?
+  # Could be useful for debugging, and nonetheless, it can be cool for the player :)
+  install-output: true
+
   environment_map:
     SERVER_JARFILE: "server.jar"
     MINECRAFT_VERSION: "1.8.8"
-
-docker:
-  enabled: false
