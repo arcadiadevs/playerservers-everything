@@ -1,57 +1,42 @@
-playerservers-default-cmd = "&9PlayerServers> &7An advanced Server Management plugin which allows players to create and manage their own subserver."
-license-msg = "&9Licence> &7%license%"
-run-in-game = "&9Error> &7Oops! You can only run this command in-game."
-no-server = "&9Error> &7You don't own a server. Don't worry, you can create one by executing &a/ps create"
-not-enough-arguments = "&9Error> &7Not enough arguments. Please use &a/ps help &7for more information."
-not-enough-arguments-kill = "&9PlayerServers> &7Oops, not enough arguments: /playerserver kill stop <uuid (example: 1F4a2id)>"
-not-enough-arguments-delete = "&9PlayerServers> &7Not enough arguments. &a/playerservers admin delete <uuid>. Please keep in mind that you should not enter the full id. You should just enter the first part (example: if full UUID is 1234-5678-1223-5623, you should just enter 1234)."
-no-permission = "&9Error> &7Oops, it seems like you don't have permission to do that."
-launching-server = "&9PlayerServers> &7Your server is starting up. Please wait..."
-server-online = "&9PlayerServers> &7Your server is now online. You will be connected shortly. Your friends can use &a/server %uuid%&7 to connect."
-already-have = "&9PlayerServers> &7You already have a server with that name. Please choose another name."
-too-many-online = "&9PlayerServers> &7You have too many servers online. Please wait until one of your servers is offline."
-template-no-permission = "&9PlayerServers> &7You don't have permission to use this template."
-
-[server-creation]
-
-starting-creation = "&9PlayerServers> &7Your server is being created. Please wait..."
-teleporting-soon = "&9PlayerServers> &7You will be teleported to your server in a few seconds."
-sending-to-remote-server = "&9PlayerServers> &7Sending you to your server..."
-
-# Pterodactyl
-account-created-successfully = "&9PlayerServers> &7Your account has been created successfully."
-account-creation-failed = "&9Error> &7Account creation failed. Please try again later. Error: %error%"
-
-server-created-successfully = "&9PlayerServers> &7Your server has been created successfully on Pterodactyl panel."
-server-creation-failed = "&9Error> &7Server creation failed. Please try again later. Error: %error%"
-
-[server-reboot]
-
-message = "&9PlayerServers> &7%message%"
-warning = "&c&lAre you sure you want to do that? If you do, please repeat this command in the next 5 seconds."
-
-[server-rename]
-
-successfully-renamed = "&9PlayerServers> &7Your server has been successfully renamed."
-too-long = "&9Error> &7Your server name is too long. Please choose a shorter name."
-invalid-characeters = "&9Error> &7Your server name contains invalid characters. Please choose a valid name."
-rename-failed = "&9Error> &7Renaming your server failed. Please try again later."
-
-[server-stop]
-
-not-online = "&9Error> &7Your server is not online."
-successfully-killed = "&9PlayerServers> &7Your server has been successfully killed."
-
-[server-connect]
-
-connected = "&9PlayerServers> &7You are being connected to your server..."
-
-[server-restart]
-
-killing = "&9PlayerServers> &7Killing your server..."
-
-[server-remove]
-
-remove-warning = "&9PlayerServers> &7Are you sure you want to remove your server? If you do, please repeat this command in the next 5 seconds."
-removing = "&9PlayerServers> &7Deleting your server..."
-successfully-removed = "&9PlayerServers> &7Your server has been successfully removed."
+playerservers-default-cmd="&9PlayerServers> &7An advanced Server Management plugin which allows players to create and manage their own subserver."
+license-msg="&9Licence> &7%license%"
+no-server="&9Error> &7You don't own a server. Don't worry, you can create one by executing &a/ps create"
+not-enough-arguments="&9Error> &7Not enough arguments. Please use &a/ps help &7for more information."
+not-enough-arguments-kill="&9PlayerServers> &7Oops, not enough arguments: /playerserver kill stop <uuid (example: 1F4a2id)>"
+not-enough-arguments-delete="&9PlayerServers> &7Not enough arguments. &a/playerservers admin delete <uuid>. Please keep in mind that you should not enter the full id. You should just enter the first part (example: if full UUID is 1234-5678-1223-5623, you should just enter 1234)."
+no-permission="&9Error> &7Oops, it seems like you don't have permission to do that."
+launching-server="&9PlayerServers> &7Your server is starting up. Please wait..."
+server-online="&9PlayerServers> &7Your server is now online. You will be connected shortly. Your friends can use &a/server %uuid%&7 to connect."
+server-offline="&9PlayerServers> &7Your server is offline. You can start it by executing &a/ps start&7."
+already-have="&9PlayerServers> &7You already have a server with that name. Please choose another name."
+too-many-online="&9PlayerServers> &7You have too many servers online. Please wait until one of your servers is offline."
+template-no-permission="&9PlayerServers> &7You don't have permission to use this template."
+starting-creation="&9PlayerServers> &7Your server is being created. Please wait..."
+teleporting-soon="&9PlayerServers> &7You will be teleported to your server in a few seconds."
+sending-to-remote-server="&9PlayerServers> &7Sending you to your server..."
+message="&9PlayerServers> &7%message%"
+warning="&c&lAre you sure you want to do that? If you do, please repeat this command in the next 5 seconds."
+successfully-renamed="&9PlayerServers> &7Your server has been successfully renamed."
+too-long="&9Error> &7Your server name is too long. Please choose a shorter name."
+invalid-characters="&9Error> &7Your server name contains invalid characters. Please choose a valid name."
+rename-failed="&9Error> &7Renaming your server failed. Please try again later."
+not-online="&9Error> &7Your server is not online."
+successfully-killed="&9PlayerServers> &7Your server has been successfully killed."
+connected="&9PlayerServers> &7You are being connected to your server..."
+killing="&9PlayerServers> &7Killing your server..."
+successfully-removed="&9PlayerServers> &7Your server has been successfully removed."
+removing="&9PlayerServers> &7Deleting your server..."
+remove-warning="&9PlayerServers> &7Are you sure you want to remove your server? If you do, please repeat this command in the next 5 seconds."
+account-created-successfully="&9PlayerServers> &7Your account has been created successfully."
+account-creation-failed="&9Error> &7Account creation failed. Please try again later.  Error: %error%"
+server-created-successfully="&9PlayerServers> &7Your server has been created successfully on Pterodactyl panel. Please login at &6%link% &7 with username &6%username% &7 and password &6%password% &7 to manage your server."
+server-creation-failed="&9Error> &7Server creation failed. Please try again later. Error: %error%"
+no-port-available="&9Error> &7Oops, it seems like there are no ports available. Please try again later."
+no-node-available="&9Error> &7Oops, it seems like there are no nodes available. Please try again later."
+action-error="&9Error> &7Oops, it seems like there was an error while performing this action. Please try again later. Error: %error%"
+node-created-successfully="&9PlayerServers> &7Node has been created successfully."
+server-not-found="&9Error> &7Oops, we couldn't find that server."
+not-enough-arguments-start="&9Error> &7You didn't provide enough arguments. Please use &a/ps admin start <uuid>&7."
+sending-info-to-remote-server="&9PlayerServers> &7Sending information to the remote node..."
+node-not-found="&9Error> &7Oops, we couldn't find that node."
+node-removed-successfully="&9PlayerServers> &7Node has been removed successfully."
