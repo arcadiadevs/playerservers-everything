@@ -65,9 +65,6 @@ minutes-to-shutdown: 15
 # should we launch the server? Increase this if you get could not connect message.
 copy-delay: 3
 
-# Default startup command. Supports %uuid% for server UUID and %mem% for memory.
-launch-command: "screen -dmS %uuid% java -Xmx%mem%M -jar Spigot.jar"
-
 ram-limiting:
   # Should we use permissions for ram management? If set to true, you MUST give
   # your players permission playerserver.ram.<amount> (ex: playerserver.ram.512)
@@ -79,8 +76,7 @@ ram-limiting:
   ram-per-server: 512
 
 cpu-limiting:
-  # Only for docker-based servers,
-  # should we use permissions for cpu management? If set to true, you MUST give
+  # Should we use permissions for cpu management? If set to true, you MUST give
   # your players permission playerserver.cpu.<amount> (ex: playerserver.cpu.1)
   # or, else, the command will be blocked, and player will not be able to create
   # the server. If set to false, everyone will have cpu-per-server amount of CPU.
@@ -132,6 +128,10 @@ templates:
     # This is just an example of what you can do with requires-permission.
     # Default template will never require permission, even if set to true.
     requires-permission: false
+    # The plugin is built around itzg/minecraft-server as a base image.
+    # You can use any image you want, but we do not provide support for it.
+    # Use variables below to customize the way your server will be created.
+    docker-image: "itzg/minecraft-server"
     # The type of the server jar. Can be "SPIGOT", "PAPER", "PUFFERFISH",
     # "PURPUR", "MAGMA", "FORGE", "FABRIC" and much more.
     #
@@ -146,12 +146,20 @@ templates:
     # snapshot version of Minecraft available, as soon as server is restarted.
     # SNAPSHOT may not work on all types of servers.
     version: "1.8.8"
-    # What launch command should be used? If set as %default%, launch-command
-    # from above will be used (~line 70). Supports %mem% and %uuid% placeholders.
-    launch-command: "%default%"
-    # What plugins does this template contain?
-    # More info: https://playerservers.thearcadia.xyz/experimental/templates
-    plugins: [ ]
+
+    # These variables are always sent if you use the default docker image
+    # (itzg/minecraft-server) and can not be changed.
+    #
+    # EULA=true
+    # TYPE=%typeFromAbove%
+    # VERSION=%versionFromAbove%
+    # ONLINE_MODE=false
+    # SERVER_PORT=%serverPort%
+    #
+    # Below you can add more variables for this image or in case you use a custom one.
+    # Format: VARIABLE_NAME: "VARIABLE_VALUE"
+    variables:
+      USE_NATIVE_TRANSPORT: "false"
 
 # Which folders or files will not show in /config file manager?
 disabled-access:
