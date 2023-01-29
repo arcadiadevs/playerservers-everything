@@ -1,10 +1,3 @@
----
-description: >-
-  An advanced plugin which allows your players to create their sub-servers as
-  part of your BungeeCord / Waterfall / Travertine / HexaCord network and manage
-  them with easy-to-use, friendly GUI
----
-
 # 🖥 PlayerServers - Overview
 
 ## Description
