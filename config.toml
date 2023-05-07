@@ -1,0 +1,10 @@
+port = 8080
+
+# Please put in the same access password from the PlayerServers config
+token = ""
+
+debug = true
+
+# Should we automatically update the server core to the latest version
+# for all sub-servers upon server restart?
+auto-update-server-core = true
